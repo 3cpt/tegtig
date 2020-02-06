@@ -12,6 +12,12 @@ const octokitObj = new Octokit({
     },
 });
 
+const getVariables = () => {
+    console.log(process.env.GITHUB_API_KEY);
+    console.log(process.env.GITHUB_API_USERAGENT);
+};
+
 module.exports = {
-    octokitObj
+    octokitObj,
+    getVariables
 };

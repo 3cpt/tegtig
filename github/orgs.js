@@ -1,15 +1,15 @@
-const { octokitObj } = require('./gbauth');
+const { octokitObj } = require('./auth');
 
-const getUser = (username) => {
-    octokitObj.users.getByUsername({
-        username
+const getOrg = (org) => {
+    octokitObj.orgs.get({
+        org
     })
         .then(data => {
             console.info(data);
         })
         .catch(err => {
             if (err.status == 404) {
-                console.info(username + ' not found');
+                console.info(org + ' not found');
             }
             else {
                 console.info(err);
@@ -18,5 +18,5 @@ const getUser = (username) => {
 };
 
 module.exports = {
-    getUser
+    getOrg
 };

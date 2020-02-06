@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/andxpto/tegtig/issues"
   },
+  "bin": {
+    "tegtig": "./index.js"
+  },
   "homepage": "https://github.com/andxpto/tegtig#readme"
 }
