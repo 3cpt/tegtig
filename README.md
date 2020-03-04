@@ -8,11 +8,33 @@ A javascript Github API command line tool
 npm install
 ```
 
+### Global install
+
+With this option you can use `tegtig <option>` directly in your terminal:
+
+```bash
+npm install -g
+```
+
 ## Usage
 
-Get User by username
+#### Get User by username
 ```javascript
-node .\gitget.js u <username>
+node . u <username>
+//
+node . user <username>
+```
+
+#### Get User ID by username
+```javascript
+node . uid <username>
+```
+
+#### Get Organization by orgname
+```javascript
+node . o <orgname>
+//
+node . org <orgname>
 ```
 
 ## Contributing
