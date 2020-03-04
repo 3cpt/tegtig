@@ -1,7 +1,7 @@
 {
   "name": "tegtig",
-  "version": "0.0.1",
-  "description": "get information from github",
+  "version": "0.2.0",
+  "description": "Get Github information for lazy people",
   "main": "index.js",
   "author": "andxpto",
   "license": "MIT",
