@@ -1,4 +1,4 @@
-const Octokit = require("@octokit/rest");
+const { Octokit } = require("@octokit/rest")
 require('dotenv').config();
 
 const octokitObj = new Octokit({

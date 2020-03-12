@@ -4,6 +4,7 @@ const program = require('commander');
 const user = require('./github/user');
 const orgs = require('./github/orgs');
 const auth = require('./github/auth');
+const team = require('./github/team');
 
 program
   .version('0.0.1')
@@ -26,6 +27,11 @@ program
   .description('Get organization')
   .action(org => orgs.getOrg(org));
 
+program
+  .command('teamusers <org> <team_slug>')
+  .alias('tu')
+  .description('Get team users')
+  .action((org, team_slug) => team.getTeamMembers(org, team_slug));
 
 program
   .command('var')
