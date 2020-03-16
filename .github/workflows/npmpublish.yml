@@ -35,7 +35,7 @@ jobs:
         run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" >> ~/.npmrc
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
-      - run: npm publish --access public --new-version ${GITHUB_REF#"refs/tags/"}
+      - run: npm publish
 
   publish-gpr:
     needs: build
