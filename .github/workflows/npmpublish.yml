@@ -30,12 +30,13 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
+          scope: actions
       - run: npm ci
       - name: Create .npmrc
         run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" >> ~/.npmrc
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
-      - run: npm publish
+      - run: npm publish --access public
 
   publish-gpr:
     needs: build
