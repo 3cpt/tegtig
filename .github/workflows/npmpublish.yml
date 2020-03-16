@@ -8,7 +8,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
     steps:
+      - name: Github Tag Bump	
+        uses: anothrNick/github-tag-action@1.13.0	
+        env:	
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}	
+          WITH_V: false
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
@@ -25,10 +31,11 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.npm_token }}" > ~/.npmrc
-      - run: npm publish --access public
+      - name: Create .npmrc
+        run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" >> ~/.npmrc
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+      - run: npm publish --access public --new-version ${GITHUB_REF#"refs/tags/"}
 
   publish-gpr:
     needs: build
