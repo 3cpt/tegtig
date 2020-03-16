@@ -10,16 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Github Tag Bump	
-        uses: anothrNick/github-tag-action@1.13.0	
-        env:	
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}	
-          WITH_V: false
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 12
       - run: npm ci
+      - name: Bump version and push tag
+        id: tagging
+        uses: anothrNick/github-tag-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_OWNER: andxpto
 
   publish-npm:
     needs: build
@@ -32,6 +33,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
           score: actions
       - run: npm ci
+      - run: npm version ${{ steps.tagging.outputs.new_tag }}
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -45,8 +47,9 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-          scope: '@andxpto'
+          scope: actions
       - run: npm ci
+      - run: npm version ${{ steps.tagging.outputs.new_tag }}
       - run: npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GTB_TOKEN }}
