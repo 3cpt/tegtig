@@ -1,6 +1,6 @@
 # tegtig
 
-A javascript Github API command line tool
+A javascript Github API command line toolaa
 
 ## Installation
 
