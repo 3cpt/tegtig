@@ -1,4 +1,6 @@
 # tegtig
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fandxpto%2Ftegtig.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fandxpto%2Ftegtig?ref=badge_shield)
+
 
 A javascript Github API command line tool
 
@@ -42,3 +44,6 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## License
 [MIT](LICENSE)
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fandxpto%2Ftegtig.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fandxpto%2Ftegtig?ref=badge_large)
