@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@octokit/rest": "17.1.0",
-    "commander": "^4.0.1",
+    "commander": "^4.1.1",
     "dotenv": "^8.2.0"
   },
   "devDependencies": {},
